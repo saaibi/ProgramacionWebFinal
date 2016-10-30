@@ -66,3 +66,6 @@ Route::get('reservas/{id}/delete', [
     'as' => 'reservas.delete',
     'uses' => 'ReservasController@destroy',
 ]);
+
+Route::get('reservas/escenarios/{id}','ReservasController@getEscenarios');
+Route::get('reservas/reservaEscenarios/{idEs}/{tipo}','ReservasController@getReservasEcenarios');

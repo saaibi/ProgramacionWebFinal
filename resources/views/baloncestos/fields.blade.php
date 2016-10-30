@@ -7,7 +7,11 @@
 <!--- Estado Field --->
 <div class="form-group col-sm-6 col-lg-4">
     {!! Form::label('estado', 'Estado:') !!}
-    {!! Form::text('estado', null, ['class' => 'form-control']) !!}
+      <select class="form-control" id="estado" name="estado" required>
+        <option value="" disabled selected>Estado</option>
+        <option value="Disponible">Disponible</option>
+        <option value="No Disponible">No Disponible</option>
+    </select>
 </div>
 
 <!--- Tipodepiso Field --->
@@ -25,7 +29,7 @@
 <!--- Capacidad Field --->
 <div class="form-group col-sm-6 col-lg-4">
     {!! Form::label('capacidad', 'Capacidad:') !!}
-    {!! Form::text('capacidad', null, ['class' => 'form-control']) !!}
+    {!! Form::number('capacidad', null, ['class' => 'form-control']) !!}
 </div>
 
 

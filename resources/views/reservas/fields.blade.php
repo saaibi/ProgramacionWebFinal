@@ -1,55 +1,59 @@
 <!--- Id Usuario Field --->
 <div class="form-group col-sm-6 col-lg-12">
-    {!! Form::label('id_usuario', 'Id Usuario:') !!}
-    {!! Form::text('id_usuario',  Auth::user()->id , ['class' => 'form-control','readonly']) !!}
+    {!! Form::hidden('id_usuario',  Auth::user()->id , ['class' => 'form-control','readonly']) !!}
 </div>
 
 <!--- Nombre Escenario Field --->
 <div class="form-group col-sm-6 col-lg-12">
     {!! Form::label('tipo_Escenario', 'Tipo Escenario:') !!}
-     <select class="form-control" id="tipo_Escenario" name="tipo_Escenario" required>
-        <option value="" disabled selected>Seleccione Tipo Escenario</option>
-        <option value="Activa">Futbol 5</option>
-        <option value="Inactiva">Futbol 12</option>
-        <option value="Confirmada">Baloncesto</option>
-        <option value="Confirmada">Voleibol</option>
-        <option value="Confirmada">Bicicross</option>
+     <select class="form-control" id="tipo_Escenario" name="tipo_Escenario" required onchange="activar_Calendario();">
+        <option value="" disabled selected>Tipo Escenario</option>
+        <option value="FutbolCinco">Futbol 5</option>
+        <option value="FutbolDoce">Futbol 12</option>
+        <option value="Baloncesto">Baloncesto</option>
+        <option value="Voleibol">Voleibol</option>
+        <option value="Bicicross">Bicicross</option>
     </select>
 </div>
 
 <!--- Nombre Escenario Field --->
 <div class="form-group col-sm-6 col-lg-12">
     {!! Form::label('nombre_Escenario', 'Nombre Escenario:') !!}
-    {!! Form::select('nombre_Escenario',['placeholder'=>'Selecciona'],null,['id'=>'nombre_Escenario']) !!}
+    {!! Form::select('nombre_Escenario',['placeholder'=>'Selecciona'],null,['id'=>'nombre_Escenario','onchange'=>'activar_Calendario();']) !!}
 </div>
 
 <!--- Fecha Field --->
 <div class="form-group col-sm-6 col-lg-12">
     {!! Form::label('fecha', 'Fecha:') !!}
-    {!! Form::date('fecha', null, ['class' => 'form-control']) !!}
+    <input class="form-control" name="fecha" type="date" id="fecha" onchange="activar_Calendario();">
 </div>
-
+<!-- Button trigger modal -->
+<div class="form-group col-sm-6 col-lg-4">
+    @include('reservas.modal')
+</div>
 <!--- Hora Inicio Field --->
 <div class="form-group col-sm-6 col-lg-12">
     {!! Form::label('hora_Inicio', 'Hora Inicio:') !!}
-    {!! Form::time('hora_Inicio', null, ['class' => 'form-control']) !!}
+    <input class="form-control" name="hora_Inicio" type="time" id="hora_Inicio" readonly>
 </div>
 
 <!--- Hora Fin Field --->
 <div class="form-group col-sm-6 col-lg-12">
     {!! Form::label('hora_Fin', 'Hora Fin:') !!}
-    {!! Form::time('hora_Fin', null, ['class' => 'form-control']) !!}
+   <input class="form-control" name="hora_Fin" type="time" id="hora_Fin" readonly>
 </div>
 
-<!-- Button trigger modal -->
-<div class="form-group col-sm-6 col-lg-4">
-    @include('reservas.modal')
-</div>
+
 
 <!--- Estado Reserva Field --->
 <div class="form-group col-sm-6 col-lg-12">
     {!! Form::label('estado_Reserva', 'Estado Reserva:') !!}
-    {!! Form::text('estado_Reserva', null, ['class' => 'form-control']) !!}
+     <select class="form-control" id="estado_Reserva" name="estado_Reserva" required>
+        <option value="" disabled selected>Estado</option>
+        <option value="Disponible">Disponible</option>
+        <option value="No Disponible">No Disponible</option>
+        <option value="Activa">Activa</option>
+    </select>
 </div>
 
 <!--- Submit Field --->
@@ -60,16 +64,16 @@
     $("#nombre_Escenario").select2({
      theme: "classic",
      width: "170",
-    
      });
 </script>
 
 <script>
 $("#tipo_Escenario").change(event => {
-	$.get(`pacienteInfo/${event.target.value}`, function(res, sta){
-		$("#pacienteInfo").empty();
-		res.nombrePaci.forEach(elemento => {
-		    $("#pacienteInfo").append(`<span> ${elemento.nombre} </span>`);
+	$.get(`escenarios/${event.target.value}`, function(res, sta){
+		$("#nombre_Escenario").empty();
+		 $("#nombre_Escenario").append(`<option value="" disabled selected >Nombre Escenario</option>`);
+		res.forEach(elemento => {
+		    $("#nombre_Escenario").append(`<option value=${elemento.id}> ${elemento.nombre} </option>`);
 		});
 	});
 });

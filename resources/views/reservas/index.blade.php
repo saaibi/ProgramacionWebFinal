@@ -38,8 +38,8 @@
 					<td>{!! $reservas->hora_Inicio !!}</td>
 					<td>{!! $reservas->hora_Fin !!}</td>
                             <td>
-                                <a href="{!! route('reservas.edit', [$reservas->id]) !!}"><i class="glyphicon glyphicon-edit"></i></a>
-                                <a href="{!! route('reservas.delete', [$reservas->id]) !!}" onclick="return confirm('Are you sure wants to delete this Reservas?')"><i class="glyphicon glyphicon-remove"></i></a>
+                                <a href="{!! route('reservas.edit', [$reservas->id]) !!}"><i class="material-icons">mode_edit</i></a>
+                                <a href="{!! route('reservas.delete', [$reservas->id]) !!}" onclick="return confirm('Are you sure wants to delete this Reservas?')"><i class="material-icons">delete</i></a>
                             </td>
                         </tr>
                     @endforeach

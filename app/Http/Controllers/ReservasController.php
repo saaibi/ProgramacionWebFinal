@@ -8,6 +8,9 @@ use Mitul\Controller\AppBaseController;
 use Response;
 use Flash;
 
+use App\Models\Reservas;
+
+
 class ReservasController extends AppBaseController
 {
 
@@ -52,6 +55,48 @@ class ReservasController extends AppBaseController
 		return view('reservas.create');
 	}
 
+	/**
+	 * Funcion para optener escenarios 
+	 * 
+	 * @Get
+	 * 
+	 */
+	 
+   public function getEscenarios(Request $request , $id)
+	{
+		if($request->ajax()){
+			if ($id == 'FutbolCinco'){
+				 $escenarios = Reservas::getFutbolCinco();
+			} else if ($id == 'FutbolDoce'){
+				 $escenarios = Reservas::getFutbolDoce();
+			} else if ($id == 'Baloncesto'){
+				 $escenarios = Reservas::getBaloncesto();
+			} else if ($id == 'Voleibol'){
+				 $escenarios = Reservas::getVoleibol();
+			}else if ($id == 'Bicicross'){
+				 $escenarios = Reservas::getBicicross();
+			}
+           //return Response::json(array('escenarios' => $escenarios));
+           return Response::json($escenarios);
+        }
+	}
+	
+	/**
+	 * 
+	 * Funcion para optener escenarios  reservados 
+	 * 
+	 * @Get
+	 * 
+	 */
+	
+	 public function getReservasEcenarios(Request $request , $idEs, $tipo)
+	 {
+	 	if($request->ajax()){
+	 		$reservas = Reservas::getReservas($idEs,$tipo);
+	     	return Response::json($reservas);
+	 	}
+	 }
+	 
 	/**
 	 * Store a newly created Reservas in storage.
 	 *

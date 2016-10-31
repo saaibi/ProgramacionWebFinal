@@ -8,7 +8,7 @@
                 <div class="panel-heading">Reservas JS</div>
 
                 <div class="panel-body">
-                    Reservas.
+                    Reservas .
                 </div>
             </div>
         </div>

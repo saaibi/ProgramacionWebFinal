@@ -19,8 +19,8 @@
                     <thead>
                         <th>Id</th>
                     <th>Nombre</th>
-			<th>Estado</th>
-			<th>Tipodepiso</th>
+			<th>Estado</th> <!-- para hacer el commit -->
+			<th>Tipo de piso</th>
 			<th>Ubicacion</th>
 			<th>Capacidad</th>
                     <th width="50px">Action</th>

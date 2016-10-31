@@ -16,14 +16,17 @@ class CreateReservasTable extends Migration
 		Schema::create('reservas', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('id_usuario')->nullable();
+			$table->integer('id_usuario')->unsigned();
 			$table->string('tipo_Escenario')->nullable();
-			$table->string('nombre_Escenario')->nullable();
+			$table->integer('nombre_Escenario')->unsigned();
 			$table->date('fecha')->nullable();
 			$table->string('estado_Reserva')->nullable();
 			$table->time('hora_Inicio')->nullable();
 			$table->time('hora_Fin')->nullable();
 			$table->timestamps();
+			
+			$table->foreign('id_usuario')->references('id')->on('users');
+			$table->foreign('nombre_Escenario')->references('id')->on('futbol_cincos');
 		});
 	}
 

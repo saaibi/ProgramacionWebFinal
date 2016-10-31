@@ -7,8 +7,10 @@ use App\Models\FutbolDoce;
 use App\Models\Baloncesto;
 use App\Models\Voleibol;
 use App\Models\Bicicross;
+use App\User;
+use Eloquent;
 
-class Reservas extends Model
+class Reservas extends Eloquent
 {
     
 	public $table = "reservas";
@@ -53,8 +55,19 @@ class Reservas extends Model
 		return Bicicross::where('estado', 'Disponible')->get();	
 	}
 
-	public static function getReservas($idEs , $tipo){
-		return Reservas::where('nombre_Escenario', '=' , $idEs)->where('tipo_Escenario', '=' , $tipo)->get();	
+	public static function getReservas($idEs , $tipo,$idFecha){
+		return Reservas::where('nombre_Escenario', '=' , $idEs)
+		        ->where('tipo_Escenario', '=' , $tipo)
+		        ->where('fecha', '=' , $idFecha)->get();	
 	}
 
+	
+	public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+	
+	public function futbolCinco() {
+		return $this->belongsTo('App\Models\futbolCinco');
+	}
 }

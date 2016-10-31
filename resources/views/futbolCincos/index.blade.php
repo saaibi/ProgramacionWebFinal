@@ -17,16 +17,18 @@
             @else
                 <table class="table">
                     <thead>
+                    <th>Id</th>
                     <th>Nombre</th>
-			<th>Estado</th>
-			<th>Tipodepiso</th>
-			<th>Ubicacion</th>
+        			<th>Estado</th>
+        			<th>Tipodepiso</th>
+        			<th>Ubicacion</th>
                     <th width="50px">Action</th>
                     </thead>
                     <tbody>
                      
                     @foreach($futbolCincos as $futbolCinco)
                         <tr>
+                            <td>{!! $futbolCinco->id !!}</td>
                             <td>{!! $futbolCinco->nombre !!}</td>
 					<td>{!! $futbolCinco->estado !!}</td>
 					<td>{!! $futbolCinco->tipoDePiso !!}</td>

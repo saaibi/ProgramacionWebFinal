@@ -17,6 +17,7 @@
             @else
                 <table class="table">
                     <thead>
+                        <th>Id</th>
                     <th>Nombre</th>
 			<th>Estado</th>
 			<th>Tipodepiso</th>
@@ -28,6 +29,7 @@
                      
                     @foreach($voleibols as $voleibol)
                         <tr>
+                            <td>{!! $voleibol->id !!}</td>
                             <td>{!! $voleibol->nombre !!}</td>
 					<td>{!! $voleibol->estado !!}</td>
 					<td>{!! $voleibol->tipoDePiso !!}</td>

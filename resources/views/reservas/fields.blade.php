@@ -6,7 +6,7 @@
 <!--- Nombre Escenario Field --->
 <div class="form-group col-sm-6 col-lg-12">
     {!! Form::label('tipo_Escenario', 'Tipo Escenario:') !!}
-     <select class="form-control" id="tipo_Escenario" name="tipo_Escenario" required onchange="activar_Calendario();">
+     <select class="form-control" id="tipo_Escenario" name="tipo_Escenario" required onchange="activar_Calendario(); limpiar();">
         <option value="" disabled selected>Tipo Escenario</option>
         <option value="FutbolCinco">Futbol 5</option>
         <option value="FutbolDoce">Futbol 12</option>
@@ -19,13 +19,13 @@
 <!--- Nombre Escenario Field --->
 <div class="form-group col-sm-6 col-lg-12">
     {!! Form::label('nombre_Escenario', 'Nombre Escenario:') !!}
-    {!! Form::select('nombre_Escenario',['placeholder'=>'Selecciona'],null,['id'=>'nombre_Escenario','onchange'=>'activar_Calendario();']) !!}
+    {!! Form::select('nombre_Escenario',['placeholder'=>'Selecciona'],null,['id'=>'nombre_Escenario','onchange'=>'activar_Calendario(); limpiar();']) !!}
 </div>
 
 <!--- Fecha Field --->
 <div class="form-group col-sm-6 col-lg-12">
     {!! Form::label('fecha', 'Fecha:') !!}
-    <input class="form-control" name="fecha" type="date" id="fecha" onchange="activar_Calendario();">
+    <input class="form-control" name="fecha" type="date" id="fecha" onchange="activar_Calendario(); limpiar();">
 </div>
 <!-- Button trigger modal -->
 <div class="form-group col-sm-6 col-lg-4">
@@ -77,4 +77,11 @@ $("#tipo_Escenario").change(event => {
 		});
 	});
 });
+</script>
+
+<script type="text/javascript" >
+    function limpiar (){
+    document.getElementById('hora_Inicio').value = '';
+    document.getElementById('hora_Fin').value = '';
+    }
 </script>

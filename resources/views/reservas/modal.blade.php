@@ -1,7 +1,13 @@
+<style type="text/css">
+    .spanstyle{
+        font-size: small;
+        text-transform: capitalize;
+    }
+</style>
 
 <!-- Button trigger modal -->
 <button type="button" onclick="getReservas();" name="btn_Calendario" class="btn btn-primary btn-lg" id="btn_Calendario" data-toggle="modal" data-target="#myModal" disabled>
-  Calendario
+  Horarios
 </button>
 
 <!-- Modal -->
@@ -11,11 +17,14 @@
       <div class="modal-header">
         <button   type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <Center><h4 class="modal-title" id="myModalLabel"><b><h3>Agenda</h3></b></h4></Center>
+         <span class="label label-info spanstyle" id="nameInfo"></span>
+          <span class="label label-info spanstyle" id="fechaInfo"></span>
       </div>
       <div class="modal-body">
         <div class="row">
            
-                <table class="table table-condensed table-hover" id="tablajson">
+          
+          <table class="table table-condensed table-hover" id="tablajson">
                  <thead>
 			<th>Hora inicio</th>
 			<th>Hora salida</th>
@@ -39,29 +48,27 @@
         function getReservas(){
         var  idEs = document.getElementById('nombre_Escenario').value;
         var  tipo = document.getElementById('tipo_Escenario').value;
-        console.log(tipo);
-    	$.get('reservaEscenarios/'+idEs+'/'+tipo, function(res, sta){
+        var idFecha =  document.getElementById('fecha').value ;
+    	$.get('reservaEscenarios/'+idEs+'/'+tipo+'/'+idFecha, function(res, sta){
     	 console.log(res);
     	$("#tablajson tbody").empty();
-    	$("#doctorInfo").empty();
-    	$("#doctorInfo2").empty();
-   		var fe =  document.getElementById('fecha').value ;
+    	$("#fechaInfo").empty();
+        $("#nameInfo").empty();
    		var hor;
    		var teeth = [];
    		var l = 10;
-   		
-   		 res.forEach(elemento => {
-   	        $("#doctorInfo").append(`<span >Cedula: ${elemento.cedula}</span>`);
-   	        $("#doctorInfo2").append(`<span>${elemento.especialidad}</span>`);
-   		});
+   	
+       	var combo = document.getElementById("nombre_Escenario");
+        var selected = combo.options[combo.selectedIndex].text;
+        $("#nameInfo").append('<span>Nombre: '+selected+'</span>');
+        $("#fechaInfo").append('<span>Fecha: '+idFecha+'</span>');
+                 
    		
    		res.forEach(element => {
-   		    if (fe == element.fecha ){
-   		         console.log(element);
+   		        console.log(element.nombre_Escenario);
        		    l --;
        			hor = element.hora_Inicio;
        			teeth.push(hor);
-                }
    		});
    	 
    		teeth.sort();

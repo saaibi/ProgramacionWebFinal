@@ -1,11 +1,3 @@
-function getDoctor(){
- document.getElementById('idDoctor').value = document.getElementById('id_Doctor').value;
-}
- function getFecha(Fecha){
- document.getElementById('fechaFin').value = Fecha;
-}
-
-
 //deshabilitar y habilitar Botón Calendario
 	function activar_Calendario(){
 	     var tipoEs = $('#tipo_Escenario').val();

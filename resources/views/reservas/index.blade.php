@@ -17,6 +17,7 @@
             @else
                 <table class="table">
                     <thead>
+                        <th>Id</th>
                     <th>Id Usuario</th>
                     <th>Tipo Escenario</th>
 			<th>Nombre Escenario</th>
@@ -27,23 +28,25 @@
                     <th width="50px">Action</th>
                     </thead>
                     <tbody>
-                     
-                    @foreach($reservas as $reservas)
+                    @foreach($reservas as $reserva)
+                    </tbody>
                         <tr>
-                            <td>{!! $reservas->id_usuario !!}</td>
-                             <td>{!! $reservas->tipo_Escenario !!}</td>
-					<td>{!! $reservas->nombre_Escenario !!}</td>
-					<td>{!! $reservas->fecha !!}</td>
-					<td>{!! $reservas->estado_Reserva !!}</td>
-					<td>{!! $reservas->hora_Inicio !!}</td>
-					<td>{!! $reservas->hora_Fin !!}</td>
+                            <td>{!! $reserva->id!!}</td>
+                            <td>{!! $reserva->id_usuario!!}</td>
+                            <td>{!! $reserva->tipo_Escenario !!}</td>
+        					<td>{!! $reserva->nombre_Escenario !!}</td>
+        					<td>{!! $reserva->fecha !!}</td>
+        					<td>{!! $reserva->estado_Reserva !!}</td>
+        					<td>{!! $reserva->hora_Inicio !!}</td>
+        					<td>{!! $reserva->hora_Fin !!}</td>
                             <td>
-                                <a href="{!! route('reservas.edit', [$reservas->id]) !!}"><i class="material-icons">mode_edit</i></a>
-                                <a href="{!! route('reservas.delete', [$reservas->id]) !!}" onclick="return confirm('Are you sure wants to delete this Reservas?')"><i class="material-icons">delete</i></a>
+                                <a href="{!! route('reservas.edit', [$reserva->id]) !!}"><i class="glyphicon glyphicon-edit"></i></a>
+                                <a href="{!! route('reservas.delete', [$reserva->id]) !!}" onclick="return confirm('Are you sure wants to delete this Reservas?')"><i class="glyphicon glyphicon-remove"></i></a>
                             </td>
                         </tr>
                     @endforeach
-                    </tbody>
+                    
+                    
                 </table>
             @endif
         </div>

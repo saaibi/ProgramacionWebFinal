@@ -68,4 +68,4 @@ Route::get('reservas/{id}/delete', [
 ]);
 
 Route::get('reservas/escenarios/{id}','ReservasController@getEscenarios');
-Route::get('reservas/reservaEscenarios/{idEs}/{tipo}','ReservasController@getReservasEcenarios');
+Route::get('reservas/reservaEscenarios/{idEs}/{tipo}/{idFecha}','ReservasController@getReservasEcenarios');

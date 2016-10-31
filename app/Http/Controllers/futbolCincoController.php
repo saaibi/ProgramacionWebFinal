@@ -28,6 +28,7 @@ class futbolCincoController extends AppBaseController
 	 */
 	public function index(Request $request)
 	{
+
 	    $input = $request->all();
 
 		$result = $this->futbolCincoRepository->search($input);

@@ -17,6 +17,7 @@
             @else
                 <table class="table">
                     <thead>
+                        <th>Id</th>
                     <th>Nombre</th>
 			<th>Estado</th>
 			<th>Ubicacion</th>
@@ -27,6 +28,7 @@
                      
                     @foreach($bicicrosses as $bicicross)
                         <tr>
+                            <td>{!! $bicicross->id !!}</td>
                             <td>{!! $bicicross->nombre !!}</td>
 					<td>{!! $bicicross->estado !!}</td>
 					<td>{!! $bicicross->ubicacion !!}</td>

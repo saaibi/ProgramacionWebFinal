@@ -7,6 +7,7 @@ use App\Libraries\Repositories\ReservasRepository;
 use Mitul\Controller\AppBaseController;
 use Response;
 use Flash;
+use App\User;
 
 use App\Models\Reservas;
 
@@ -29,8 +30,37 @@ class ReservasController extends AppBaseController
 	 *
 	 * @return Response
 	 */
+
+	 
 	public function index(Request $request)
 	{
+		/*
+		$user = User::find(1);
+	       $friends_votes = $user->reservas()
+	    ->with('user') // bring along details of the friend
+	    ->join('users', 'users.id', '=', 'reservas.id_usuario')
+	    ->get(); // exclude extra details from friends table
+    
+         dd($friends_votes);
+         
+         	$reser = Reservas::where('id_usuario' , '=' , 1)
+			->with('user')
+			->get();
+		
+		dd($reser->toArray());
+		
+		$article = \App\Models\Reservas::with('futbolCinco')->get();
+         
+         
+         dd($article->toArray());
+         
+         */
+         
+        // $use = Reservas::join('users', 'reservas.id_usuario', '=', 'users.id')->get();
+
+	     
+	
+		
 	    $input = $request->all();
 
 		$result = $this->reservasRepository->search($input);
@@ -39,9 +69,7 @@ class ReservasController extends AppBaseController
 
 		$attributes = $result[1];
 
-		return view('reservas.index')
-		    ->with('reservas', $reservas)
-		    ->with('attributes', $attributes);;
+			return view('reservas.index',['reservas'=>$reservas]);
 	}
 
 	/**
@@ -89,10 +117,10 @@ class ReservasController extends AppBaseController
 	 * 
 	 */
 	
-	 public function getReservasEcenarios(Request $request , $idEs, $tipo)
+	 public function getReservasEcenarios(Request $request , $idEs, $tipo, $idFecha)
 	 {
 	 	if($request->ajax()){
-	 		$reservas = Reservas::getReservas($idEs,$tipo);
+	 		$reservas = Reservas::getReservas($idEs,$tipo,$idFecha);
 	     	return Response::json($reservas);
 	 	}
 	 }

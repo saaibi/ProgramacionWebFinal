@@ -24,5 +24,9 @@ class futbolCinco extends Model
 		"tipoDePiso" => "required",
 		"ubicacion" => "required"
 	];
-
+	
+	  public function reservas()
+    {
+        return $this->hasMany('App\Models\Reservas');
+    }
 }

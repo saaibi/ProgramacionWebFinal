@@ -8,7 +8,7 @@
 
         <div class="row">
             <h1 class="pull-left">Bicicrosses</h1>
-            <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('bicicrosses.create') !!}">Add New</a>
+            <a class="btn btn-danger pull-right" style="margin-top: 25px" href="{!! route('bicicrosses.create') !!}">Add New</a>
         </div>
 
         <div class="row">
@@ -33,7 +33,7 @@
 					<td>{!! $bicicross->estado !!}</td>
 					<td>{!! $bicicross->ubicacion !!}</td>
 					<td>{!! $bicicross->capacidad !!}</td>
-                            <td>
+                            <td class="rojolink">
                                 <a href="{!! route('bicicrosses.edit', [$bicicross->id]) !!}"><i class="glyphicon glyphicon-edit"></i></a>
                                 <a href="{!! route('bicicrosses.delete', [$bicicross->id]) !!}" onclick="return confirm('Are you sure wants to delete this Bicicross?')"><i class="glyphicon glyphicon-remove"></i></a>
                             </td>

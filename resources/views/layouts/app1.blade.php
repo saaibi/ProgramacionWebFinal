@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,8 +18,7 @@
     {!!Html::script('select2-4.0.3/vendor/jquery-2.1.0.js')!!}
     {!!Html::script('select2-4.0.3/dist/js/select2.js')!!}
     {!!Html::style('select2-4.0.3/dist/css/select2.css',['rel'=>"stylesheet"])!!}
-    
-     {!!Html::style('select2-materialize.css',['rel'=>"stylesheet"])!!}
+    {!!Html::style('select2-materialize.css',['rel'=>"stylesheet"])!!}
     
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
@@ -44,15 +44,15 @@
         <ul class="right hide-on-med-and-down">
          <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}">Login</a></li>
-                        <li><a href="{{ url('/register') }}">Register</a></li>
+                        <li><a href="{{ url('/register') }}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                        <li><a href="{{ url('/login') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                     @else
-                        <li><a href="{{ url('/futbolCincos') }}">Futbol 5</a></li>
-                        <li><a href="{{ url('/futbolDoces') }}">Futbol 12</a></li>
-                        <li><a href="{{ url('/baloncestos') }}">Baloncesto</a></li>
-                        <li><a href="{{ url('/voleibols') }}">Voleibol</a></li>
-                        <li><a href="{{ url('/bicicrosses') }}">Bicicross</a></li>
-                        <li><a href="{{ url('/reservas') }}">Reservas</a></li>
+                        <li><a href="{{ url('/futbolCincos') }}"><span class="glyphicons glyphicons-soccer-ball"></span>Futbol 5</a></li>
+                        <li><a href="{{ url('/futbolDoces') }}"><span class="glyphicons glyphicons-soccer-ball"></span>Futbol 12</a></li>
+                        <li><a href="{{ url('/baloncestos') }}"><span class="glyphicons glyphicons-basketball"></span>Baloncesto</a></li>
+                        <li><a href="{{ url('/voleibols') }}"><span class="glyphicons glyphicons-life-preserver"></span>Voleibol</a></li>
+                        <li><a href="{{ url('/bicicrosses') }}"><span class="glyphicons glyphicons-bicycle"></span>Bicicross</a></li>
+                        <li><a href="{{ url('/reservas') }}"><span class="glyphicons glyphicons-disk-saved"></span>Reservas</a></li>
                        <!-- Dropdown Trigger -->
                           <li><a class="dropdown-button" href="#!" data-activates="dropdown1">{{ Auth::user()->name }}<i class="material-icons right">arrow_drop_down</i></a></li>
                  @endif

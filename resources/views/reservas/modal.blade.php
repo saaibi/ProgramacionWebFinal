@@ -6,7 +6,7 @@
 </style>
 
 <!-- Button trigger modal -->
-<button type="button" onclick="getReservas();" name="btn_Calendario" class="btn btn-primary btn-lg" id="btn_Calendario" data-toggle="modal" data-target="#myModal" disabled>
+<button type="button" onclick="getReservas();" name="btn_Calendario" class="btn btn-danger btn-lg" id="btn_Calendario" data-toggle="modal" data-target="#myModal" disabled>
   Horarios
 </button>
 
@@ -37,7 +37,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>

@@ -1,9 +1,16 @@
 <!--- Nombre Field --->
+{{ csrf_field() }}
+  <div class="form-group{{ $errors->has('nombre') ? ' has-error' : '' }}">
 <div class="form-group col-sm-6 col-lg-4">
     {!! Form::label('nombre', 'Nombre:') !!}
     {!! Form::text('nombre', null, ['class' => 'form-control']) !!}
+     @if ($errors->has('nombre'))
+        <span class="help-block">
+            <strong>{{ $errors->first('nombre') }}</strong>
+        </span>
+    @endif
 </div>
-
+</div>
 <!--- Estado Field --->
 <div class="form-group col-sm-6 col-lg-4">
     {!! Form::label('estado', 'Estado:') !!}
@@ -35,5 +42,5 @@
 
 <!--- Submit Field --->
 <div class="form-group col-sm-12">
-    {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+    {!! Form::submit('Save', ['class' => 'btn btn-danger']) !!}
 </div>

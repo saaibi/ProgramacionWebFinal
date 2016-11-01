@@ -8,7 +8,7 @@
 
         <div class="row">
             <h1 class="pull-left">Reservas</h1>
-            <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('reservas.create') !!}">Add New</a>
+            <a class="btn btn-danger pull-right" style="margin-top: 25px" href="{!! route('reservas.create') !!}">Add New</a>
         </div>
 
         <div class="row">
@@ -39,7 +39,7 @@
         					<td>{!! $reserva->estado_Reserva !!}</td>
         					<td>{!! $reserva->hora_Inicio !!}</td>
         					<td>{!! $reserva->hora_Fin !!}</td>
-                            <td>
+                            <td class="rojolink">
                                 <a href="{!! route('reservas.edit', [$reserva->id]) !!}"><i class="glyphicon glyphicon-edit"></i></a>
                                 <a href="{!! route('reservas.delete', [$reserva->id]) !!}" onclick="return confirm('Are you sure wants to delete this Reservas?')"><i class="glyphicon glyphicon-remove"></i></a>
                             </td>

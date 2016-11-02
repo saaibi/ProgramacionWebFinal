@@ -1,6 +1,11 @@
 
 <!DOCTYPE html>
 <html lang="en">
+    <style type="text/css">
+        .navbar-default .navbar-nav>li>a {
+    color: #fff;
+}
+    </style>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

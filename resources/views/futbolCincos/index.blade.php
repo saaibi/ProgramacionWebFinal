@@ -3,12 +3,13 @@
 @section('content')
 
     <div class="container">
-
+    
         @include('flash::message')
 
-        <div class="row">
-            <h1 class="pull-left">futbolCincos</h1>
-            <a class="btn btn-danger pull-right" style="margin-top: 25px" href="{!! route('futbolCincos.create') !!}">Add New</a>
+        <div class="row"><br/><br/><br/>
+            <h1 class="pull-left" style="font-size: 81px;">Futbol Cinco</h1>
+                  <!-- Button trigger modal -->
+                @include('futbolCincos.create')
         </div>
 
         <div class="row">
@@ -43,5 +44,8 @@
                 </table>
             @endif
         </div>
+   
     </div>
+    
+
 @endsection

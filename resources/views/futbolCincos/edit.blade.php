@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container"><br/><br/>
 
     @include('common.errors')
 
@@ -11,4 +11,5 @@
 
     {!! Form::close() !!}
 </div>
+
 @endsection

@@ -17,55 +17,49 @@ Route::get('/', function () {
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
 
+Route::group(['middleware' => ['auth']], function () {
 
-Route::resource('futbolCincos', 'futbolCincoController');
+       Route::get('/home', 'HomeController@index');
 
-Route::get('futbolCincos/{id}/delete', [
-    'as' => 'futbolCincos.delete',
-    'uses' => 'futbolCincoController@destroy',
-]);
+       
+      
+      Route::group(['middleware'=>['admin']],function (){
+         Route::get('futbolCincos/{id}/delete', [
+            'as' => 'futbolCincos.delete',
+            'uses' => 'futbolCincoController@destroy',
+        ]);
+          Route::get('futbolDoces/{id}/delete', [
+        'as' => 'futbolDoces.delete',
+        'uses' => 'FutbolDoceController@destroy',
+        ]);
+         Route::get('baloncestos/{id}/delete', [
+            'as' => 'baloncestos.delete',
+            'uses' => 'BaloncestoController@destroy',
+        ]);
+        Route::get('voleibols/{id}/delete', [
+            'as' => 'voleibols.delete',
+            'uses' => 'VoleibolController@destroy',
+        ]);
+         Route::get('bicicrosses/{id}/delete', [
+            'as' => 'bicicrosses.delete',
+            'uses' => 'BicicrossController@destroy',
+        ]);
+        
+        Route::get('reservas/{id}/delete', [
+            'as' => 'reservas.delete',
+            'uses' => 'ReservasController@destroy',
+        ]);
+      });
+      
+        Route::resource('futbolCincos', 'futbolCincoController');
+        Route::resource('futbolDoces', 'FutbolDoceController');
+        Route::resource('baloncestos', 'BaloncestoController');
+        Route::resource('voleibols', 'VoleibolController');
+        Route::resource('bicicrosses', 'BicicrossController');
+        Route::resource('reservas', 'ReservasController');
+        Route::get('reservas/escenarios/{id}','ReservasController@getEscenarios');
+        Route::get('reservas/reservaEscenarios/{idEs}/{tipo}/{idFecha}','ReservasController@getReservasEcenarios');
+        
 
-
-Route::resource('futbolDoces', 'FutbolDoceController');
-
-Route::get('futbolDoces/{id}/delete', [
-    'as' => 'futbolDoces.delete',
-    'uses' => 'FutbolDoceController@destroy',
-]);
-
-
-Route::resource('baloncestos', 'BaloncestoController');
-
-Route::get('baloncestos/{id}/delete', [
-    'as' => 'baloncestos.delete',
-    'uses' => 'BaloncestoController@destroy',
-]);
-
-
-Route::resource('voleibols', 'VoleibolController');
-
-Route::get('voleibols/{id}/delete', [
-    'as' => 'voleibols.delete',
-    'uses' => 'VoleibolController@destroy',
-]);
-
-
-Route::resource('bicicrosses', 'BicicrossController');
-
-Route::get('bicicrosses/{id}/delete', [
-    'as' => 'bicicrosses.delete',
-    'uses' => 'BicicrossController@destroy',
-]);
-
-
-Route::resource('reservas', 'ReservasController');
-
-Route::get('reservas/{id}/delete', [
-    'as' => 'reservas.delete',
-    'uses' => 'ReservasController@destroy',
-]);
-
-Route::get('reservas/escenarios/{id}','ReservasController@getEscenarios');
-Route::get('reservas/reservaEscenarios/{idEs}/{tipo}/{idFecha}','ReservasController@getReservasEcenarios');
+ });

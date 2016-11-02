@@ -17,6 +17,7 @@ class BaloncestoController extends AppBaseController
 	function __construct(BaloncestoRepository $baloncestoRepo)
 	{
 		$this->baloncestoRepository = $baloncestoRepo;
+		$this->middleware('admin',['only' => ['edit','store','update']]);
 	}
 
 	/**

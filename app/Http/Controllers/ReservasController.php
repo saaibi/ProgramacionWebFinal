@@ -21,6 +21,7 @@ class ReservasController extends AppBaseController
 	function __construct(ReservasRepository $reservasRepo)
 	{
 		$this->reservasRepository = $reservasRepo;
+		$this->middleware('admin',['only' => ['edit','update']]);
 	}
 
 	/**

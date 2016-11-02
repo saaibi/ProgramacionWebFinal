@@ -17,6 +17,7 @@ class VoleibolController extends AppBaseController
 	function __construct(VoleibolRepository $voleibolRepo)
 	{
 		$this->voleibolRepository = $voleibolRepo;
+		$this->middleware('admin',['only' => ['edit','store','update']]);
 	}
 
 	/**

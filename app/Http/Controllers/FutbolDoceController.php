@@ -17,6 +17,7 @@ class FutbolDoceController extends AppBaseController
 	function __construct(FutbolDoceRepository $futbolDoceRepo)
 	{
 		$this->futbolDoceRepository = $futbolDoceRepo;
+	    $this->middleware('admin',['only' => ['edit','store','update']]);
 	}
 
 	/**

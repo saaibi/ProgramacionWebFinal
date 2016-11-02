@@ -17,6 +17,7 @@ class BicicrossController extends AppBaseController
 	function __construct(BicicrossRepository $bicicrossRepo)
 	{
 		$this->bicicrossRepository = $bicicrossRepo;
+		$this->middleware('admin',['only' => ['edit','store','update']]);
 	}
 
 	/**

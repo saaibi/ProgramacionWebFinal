@@ -6,9 +6,9 @@
 
         @include('flash::message')
 
-        <div class="row">
-            <h1 class="pull-left">Voleibols</h1>
-            <a class="btn btn-danger pull-right" style="margin-top: 25px" href="{!! route('voleibols.create') !!}">Add New</a>
+        <div class="row"><br/><br/><br/>
+            <h1 class="pull-left" style="font-size: 81px;">Voleibol </h1>
+            @include('voleibols.create')
         </div>
 
         <div class="row">

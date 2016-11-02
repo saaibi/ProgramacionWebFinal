@@ -17,6 +17,7 @@ class futbolCincoController extends AppBaseController
 	function __construct(futbolCincoRepository $futbolCincoRepo)
 	{
 		$this->futbolCincoRepository = $futbolCincoRepo;
+		$this->middleware('admin',['only' => ['edit','store','update']]);
 	}
 
 	/**

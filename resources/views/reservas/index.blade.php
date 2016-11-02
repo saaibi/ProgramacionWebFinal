@@ -6,8 +6,8 @@
 
         @include('flash::message')
 
-        <div class="row">
-            <h1 class="pull-left">Reservas</h1>
+        <div class="row"><br/><br/><br/>
+            <h1 class="pull-left" style="font-size: 81px;">Reservas</h1>
             <a class="btn btn-danger pull-right" style="margin-top: 25px" href="{!! route('reservas.create') !!}">Add New</a>
         </div>
 

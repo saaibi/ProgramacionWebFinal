@@ -1,6 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+<style>
+.navbar-default .navbar-nav>li>a {
+    color: #C52B28;
+}
+.navbar-default {
+    background-color: #C52B28;
+    border-color: #e7e7e7;
+    border-radius: 25px;
+}
+    a{
+    text-decoration: none !important;
+}
 
+.sizefooter{
+    height: 100px;
+    background-color: #000;
+}
+.center{
+    text-align: center;
+}
+.tamanoInput{
+    width: 65%;
+    margin: 0px auto !important;
+    display: block !important;
+ }
+ .white{
+     color: white;
+ }
+</style>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,7 +50,9 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" type="text/css" />
 
     <!-- select 2-->
-    {!!Html::script('select2-4.0.3/vendor/jquery-2.1.0.js')!!} {!!Html::script('select2-4.0.3/dist/js/select2.js')!!} {!!Html::style('select2-4.0.3/dist/css/select2.css',['rel'=>"stylesheet"])!!}
+    {!!Html::script('select2-4.0.3/vendor/jquery-2.1.0.js')!!} 
+    {!!Html::script('select2-4.0.3/dist/js/select2.js')!!} 
+    {!!Html::style('select2-4.0.3/dist/css/select2.css',['rel'=>"stylesheet"])!!}
 
     <!-- Iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -32,6 +62,8 @@
     <link href="{{asset('Styles/style.css')}}" rel="stylesheet" type="text/css" media="all" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
+   
+	 
     <style>
         body {
             font-family: 'Lato';
@@ -53,10 +85,11 @@
 </head>
 
 <body id="app-layout">
-    <nav class="navbarInverse navbar">
-        <div class="container">
-            <div class="navbar-header">
-                <!-- Collapsed Hamburger -->
+    <nav class="navbar navbar-default letragrande navbar-fixed-top opaque-navbar" style="background-color: #C52B28;">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <!-- Collapsed Hamburger -->
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
                     <span class="sr-only">Toggle Navigation</span>
                     <span class="icon-bar"></span>
@@ -67,8 +100,8 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{asset('Banner/logo_unac.png')}}" alt="Home" style="width: 30pt"></img>
                 </a>
-            </div>
-            <div class="collapse navbar-collapse" id="app-navbar-collapse">
+    </div>
+            <div class="collapse navbar-collapse rightMenu" id="bs-example-navbar-collapse-1">
     
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
@@ -91,10 +124,6 @@
                     </li>
                     <li><a href="{{ url('/reservas') }}"><span class="glyphicon glyphicon-saved"></span> Reservas</a>
                     </li>
-
-
-
-
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::user()->name }} <span class="caret"></span>
@@ -110,6 +139,7 @@
         </div>
     </nav>
     @yield('content')
+   
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
@@ -122,6 +152,20 @@
     {!!Html::script('js/jquery-2.1.0.min.js')!!} {!!Html::script('js/controlReservas.js')!!}
 
     <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    
+     <!-- Slider  -->
+     <link href="{{asset('slider/css/style.css')}}" rel="stylesheet" type="text/css"  media="all" />
+	 <link href="{{asset('slider/css/camera.css')}}" rel="stylesheet" type="text/css" media="all" />
+	 <script src="{{asset('slider/js/jquery.js')}}"></script>
+	 <script src="{{asset('slider/js/superfish.js')}}"></script>
+	 
+     <!-- #camera_wrap_1 -->
+     <script type='text/javascript' src='slider/js/jquery.min.js'></script>
+     <script type='text/javascript' src='slider/js/jquery.easing.1.3.js'></script> 
+     <script type='text/javascript' src='slider/js/camera.min.js'></script> 
+     
+     
+     
 </body>
 
 </html>

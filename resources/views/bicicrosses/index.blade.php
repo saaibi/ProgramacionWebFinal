@@ -8,7 +8,9 @@
 
         <div class="row"><br/><br/><br/>
             <h1 class="pull-left" style="font-size: 81px;">Bicicross</h1>
+             @if(Auth::user()->email == 'reservasjs@gmail.com')
             @include('bicicrosses.create')
+            @endif
         </div>
 
         <div class="row">
@@ -22,7 +24,9 @@
 			<th>Estado</th>
 			<th>Ubicacion</th>
 			<th>Capacidad</th>
+			 @if(Auth::user()->email == 'reservasjs@gmail.com')
                     <th width="50px">Action</th>
+                    @endif
                     </thead>
                     <tbody>
                      
@@ -33,10 +37,12 @@
 					<td>{!! $bicicross->estado !!}</td>
 					<td>{!! $bicicross->ubicacion !!}</td>
 					<td>{!! $bicicross->capacidad !!}</td>
+					 @if(Auth::user()->email == 'reservasjs@gmail.com')
                             <td class="rojolink">
                                 <a href="{!! route('bicicrosses.edit', [$bicicross->id]) !!}"><i class="glyphicon glyphicon-edit"></i></a>
                                 <a href="{!! route('bicicrosses.delete', [$bicicross->id]) !!}" onclick="return confirm('Are you sure wants to delete this Bicicross?')"><i class="glyphicon glyphicon-remove"></i></a>
                             </td>
+                            @endif
                         </tr>
                     @endforeach
                     </tbody>

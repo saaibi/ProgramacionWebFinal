@@ -2,7 +2,7 @@
 <html lang="en">
 <style>
 .navbar-default .navbar-nav>li>a {
-    color: #C52B28;
+    color: #fff;
 }
 .navbar-default {
     background-color: #C52B28;
@@ -112,20 +112,20 @@
                     <li><a href="{{ url('/login') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a>
                     </li>
                     @else
-                    <li><a href="{{ url('/futbolCincos') }}"><i style="font-size:14px" class="fa">&#xf1e3;</i> Futbol 5</a>
+                    <li><a style="color: #fff;" href="{{ url('/futbolCincos') }}"><i style="font-size:14px" class="fa">&#xf1e3;</i> Futbol 5</a>
                     </li>
-                    <li><a href="{{ url('/futbolDoces') }}"><i style="font-size:14px" class="fa">&#xf1e3;</i> Futbol 12</a>
+                    <li><a style="color: #fff;" href="{{ url('/futbolDoces') }}"><i style="font-size:14px" class="fa">&#xf1e3;</i> Futbol 12</a>
                     </li>
-                    <li><a href="{{ url('/baloncestos') }}"><i style="font-size:14px" class="fa">&#xf17d;</i> Baloncesto</a>
+                    <li><a style="color: #fff;" href="{{ url('/baloncestos') }}"><i style="font-size:14px" class="fa">&#xf17d;</i> Baloncesto</a>
                     </li>
-                    <li><a href="{{ url('/voleibols') }}"><i style="font-size:14px" class="fa">&#xf1cd;</i> Voleibol</a>
+                    <li><a style="color: #fff;" href="{{ url('/voleibols') }}"><i style="font-size:14px" class="fa">&#xf1cd;</i> Voleibol</a>
                     </li>
-                    <li><a href="{{ url('/bicicrosses') }}"><i class="material-icons" style="font-size:16px">directions_bike</i> Bicicross</a>
+                    <li><a style="color: #fff;" href="{{ url('/bicicrosses') }}"><i class="material-icons" style="font-size:16px">directions_bike</i> Bicicross</a>
                     </li>
-                    <li><a href="{{ url('/reservas') }}"><span class="glyphicon glyphicon-saved"></span> Reservas</a>
+                    <li><a style="color: #fff;" href="{{ url('/reservas') }}"><span class="glyphicon glyphicon-saved"></span> Reservas</a>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <a style="color: #fff;" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
                         <ul class="dropdown-menu" role="menu">

@@ -3,12 +3,18 @@
         font-size: small;
         text-transform: capitalize;
     }
+    .margin{
+        margin-left: 36%;
+    }
 </style>
 
 <!-- Button trigger modal -->
+<div class="margin">
 <button type="button" onclick="getReservas();" name="btn_Calendario" class="btn btn-danger btn-lg" id="btn_Calendario" data-toggle="modal" data-target="#myModal" disabled>
+ 
   Horarios
 </button>
+ </div>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -56,7 +62,7 @@
         $("#nameInfo").empty();
    		var hor;
    		var teeth = [];
-   		var l = 10;
+   		var l = 13;
    	
        	var combo = document.getElementById("nombre_Escenario");
         var selected = combo.options[combo.selectedIndex].text;
@@ -72,8 +78,8 @@
    		});
    	 
    		teeth.sort();
-        var time = 28800;
-   	    var tiempo = 32400;
+        var time = 36000;
+   	    var tiempo = 39600;
 
         for(i = 0; i < l; i++) { 
                    var hours = Math.floor( time / 3600 );  
